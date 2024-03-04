@@ -29,12 +29,23 @@ const calApiFun = () =>{
         })
 }
 
+// const runFun = () =>{
+//     document.addEventListener('keyup', (e) => {
+//         if (e.getModifierState('CapsLock')) {
+//             konsole.log("Caps Lock is on");
+//         } else {
+//             konsole.log("Caps Lock is off");
+//         }
+//     });
+// }
+
     return(
         <>
         <div>
 
         <button onClick={()=> addNewUserData(fakeUserData())}>AddUser</button>
         <button onClick={calApiFun}>calApiFun</button>
+        {/* <button onClick={runFun}>Caps lock On</button> */}
 
         <div>
             <ShowUserData/>
