@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userSlices } from "./slices/UserSlices";
+import { fakeUserDataSlices, userSlices } from "./slices/UserSlices";
 
 const store = configureStore ({
     reducer: {
         users : userSlices?.reducer,
+        fakeUserData: fakeUserDataSlices?.reducer
     }
 })
 

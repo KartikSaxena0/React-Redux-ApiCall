@@ -1,7 +1,7 @@
 import React from 'react';
 import { fakeUserData } from '../api';
-import { useDispatch } from 'react-redux';
-import { userSlices } from '../store/slices/UserSlices';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSlices, fakeUserDataSlices } from '../store/slices/UserSlices';
 import ShowUserData from './ShowUserData';
 import konsole from "../networks/konsole"
 import Services from '../networks/ServicesApi';
@@ -9,8 +9,12 @@ import Services from '../networks/ServicesApi';
 const AddUser = () => {
 
     const {addUsers, removeUsers, deleteUsers} = userSlices?.actions;
+    const {addFakeUsers, removeFakeUsers} = fakeUserDataSlices?.actions;
 
     const dispatch = useDispatch()
+
+// const fakeUserStoreData = useSelector((data)=> data?.fakeUserData)
+// konsole.log("fakeUserStoreData",fakeUserStoreData?.fakeUserDataApi)
 
 const addNewUserData = (data) =>{
     dispatch(addUsers(data))
@@ -21,7 +25,9 @@ const calApiFun = () =>{
     const promise = Services.getFakeUserData();
 
         promise.then((res)=>{
-            konsole.log("getFakeUserData", res.data)
+            // konsole.log("getFakeUserData", res.data.users)
+            dispatch(addFakeUsers(res.data.users))
+            
         }).catch((err)=>{
             konsole.error("getFakeUserDataError", err)
         }).finally(()=>{

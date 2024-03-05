@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fakeUserData } from "../../api";
+import konsole from "../../networks/konsole";
 
 const userSlices = createSlice({
     name: "usersData",
@@ -22,6 +24,20 @@ const userSlices = createSlice({
     }
 })
 
-export { userSlices };
+const fakeUserDataSlices = createSlice({
+    name: "fakeUserData",
+    initialState: {
+        fakeUserDataApi: []
+    },
+    reducers: {
+        addFakeUsers(state, action) {
+            state.fakeUserDataApi = action.payload;
+            // konsole.log("fakeUserDataSlicesreducers",action.payload)
+        },
+        removeFakeUsers(state, action) {}
+    }
+})
+
+export { userSlices, fakeUserDataSlices };
 
 // export const { addUsers } = userSlices.actions;
