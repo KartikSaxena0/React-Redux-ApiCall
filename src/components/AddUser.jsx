@@ -50,7 +50,7 @@ const calApiFun = () =>{
         <div>
 
         <button onClick={()=> addNewUserData(fakeUserData())}>AddUser</button>
-        <button onClick={calApiFun}>calApiFun</button>
+        <button onClick={calApiFun}>calApiFunecheck</button>
         {/* <button onClick={runFun}>Caps lock On</button> */}
 
         <div>
