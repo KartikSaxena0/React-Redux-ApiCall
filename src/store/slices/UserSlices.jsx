@@ -34,7 +34,14 @@ const fakeUserDataSlices = createSlice({
             state.fakeUserDataApi = action.payload;
             // konsole.log("fakeUserDataSlicesreducers",action.payload)
         },
-        removeFakeUsers(state, action) {}
+        removeFakeUsers(state, action) {
+            konsole.log("inside", action.payload)
+            let removeUserIdValue = action.payload
+            let removedUserData = state.fakeUserDataApi.filter((x)=>{
+                return x.id !== removeUserIdValue
+            })
+            state.fakeUserDataApi = removedUserData;
+        }
     }
 })
 
